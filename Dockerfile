@@ -11,9 +11,6 @@ RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
 
-
-RUN apt-get install -y qgis-mapserver apache2 libapache2-mod-fcgid
-
 EXPOSE 80
 
 ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
