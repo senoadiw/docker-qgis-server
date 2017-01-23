@@ -7,23 +7,22 @@ db:
     - PASS=docker
 
 qgisserver:
-  build : .
-  #image: kartoza/qgis-server
+  #build : .
+  image: senoadiw/qgis-server
   hostname: qgis-server
-  volumes:
-    - ./gis:/gis
+  #volumes:
+  #  - ./gis:/gis
+  ports:
+    - "8080:80"
   links:
     - db:db
 
-
-nginx:
-  image: nginx
-  hostname: nginx
-  volumes:
-    - ./nginx-conf:/etc/nginx/conf.d
-  ports:
-    - "0.0.0.0:8080:80"
-  links:
-    - qgisserver:qgisserver
-
-
+#nginx:
+#  image: nginx
+#  hostname: nginx
+#  volumes:
+#    - ./nginx-conf:/etc/nginx/conf.d
+#  ports:
+#    - "0.0.0.0:8080:80"
+#  links:
+#    - qgisserver:qgisserver
